@@ -1,0 +1,122 @@
+// 1. Array in Kotlin
+fun main() {
+   val rockPlanets = arrayOf<String>("Mercury", "Venus", "Earth", "Mars")
+   val gasPlanets = arrayOf("Jupiter", "Saturn", "Uranus", "Neptune")
+   val solarSystem = rockPlanets + gasPlanets
+    
+	println(solarSystem[0])
+	println(solarSystem[1])
+	println(solarSystem[2])
+	println(solarSystem[3])
+	println(solarSystem[4])
+	println(solarSystem[5])
+	println(solarSystem[6])
+	println(solarSystem[7])
+
+  //Editing the array element at index 3
+  solarSystem[3] = "Little Earth"
+  println(solarSystem[3])
+
+  //Declare new array that is larger with 9 elements
+  val newSolarSystem = arrayOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto")
+  println(newSolarSystem[8])     
+}
+
+// 2. List in Kotlin
+fun main() {
+  //list is set to mutable 
+	val solarSystem = mutableListOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+
+    //using size property to get the size of the List
+    println(solarSystem.size) 
+
+    //Print the planet at index 2 using subscript syntax.
+    println(solarSystem[2])
+
+    //Print the element at index 3 by calling get() on the solarSystem list.
+    println(solarSystem.get(3))
+
+    //print index of Earth, it will return 2 
+    println(solarSystem.indexOf("Earth"))
+
+    //it will return -1 as no element in the list match the name Pluto
+    println(solarSystem.indexOf("Pluto"))
+
+    //using for loop to print out the elements in the list 
+    for (planet in solarSystem) {
+    	println(planet)
+    }
+
+    //after the list is set to mutable, we can add elements to the list
+    solarSystem.add("Pluto")
+    //adding an element at index 3 between "Earth" and "Mars"
+    solarSystem.add(3, "Theia")
+    //change the name of element 3 to "Future Moon"
+    solarSystem[3] = "Future Moon"
+    println(solarSystem[3])
+	  println(solarSystem[9])
+
+   //remove() and removeAt() property will remove element in the list
+   solarSystem.removeAt(9)
+   solarSystem.remove("Future Moon")
+
+    //contains() and in property will return the result in boolean. The two line below will return false as both were removed
+   println(solarSystem.contains("Pluto"))
+   println("Future Moon" in solarSystem)
+}
+
+// 3. Set in Kotlin
+fun main() {
+	val solarSystem = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+    println(solarSystem.size)
+    //add another element to the set
+    solarSystem.add("Pluto")
+    println(solarSystem.size)
+
+    //this check will return true 
+    println(solarSystem.contains("Pluto"))
+
+    //this one add another element in the set as Pluto already exist in the set, the size will stay the same
+    solarSystem.add("Pluto")
+    println(solarSystem.size)
+
+    solarSystem.remove("Pluto")
+    println(solarSystem.size)
+
+    //this time it will return false after removing pluto from the set
+    println(solarSystem.contains("Pluto"))
+}
+
+//4. Map collection in Kotlin
+fun main() {
+	val solarSystem = mutableMapOf(
+    "Mercury" to 0,
+    "Venus" to 0,
+    "Earth" to 1,
+    "Mars" to 2,
+    "Jupiter" to 79,
+    "Saturn" to 82,
+    "Uranus" to 27,
+    "Neptune" to 14
+)
+    println(solarSystem.size)
+    
+    solarSystem["Pluto"] = 5
+    //size return 9 after adding pluto
+    println(solarSystem.size)
+
+    //getting the values of element Pluto which will return 5
+    println(solarSystem["Pluto"])
+
+    //return null as there is no Theia in the map collection
+    println(solarSystem.get("Theia"))
+
+    //size revert to 8 after removing pluto from the map collection
+    solarSystem.remove("Pluto")
+    println(solarSystem.size)
+
+    //change values of Jupiter to 78
+    solarSystem["Jupiter"] = 78
+	  println(solarSystem["Jupiter"])
+    
+}
